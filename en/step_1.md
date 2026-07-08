@@ -12,7 +12,18 @@ Click on the `Neil`{:class="block3looks"} sprite so you can add your code to it.
 
 > [!TASK]
 >
-> Add a `when green flag clicked`{:class="block3events"} block, then add a `forever`{:class="block3control"} loop.
+> First, make sure Neil always starts in the same place. Add a `when green flag clicked`{:class="block3events"} block, then send Neil to the middle of the road with a `go to x: () y: ()`{:class="block3motion"} block, `point in direction ()`{:class="block3motion"} so he faces right, and `show`{:class="block3looks"} him.
+>
+> ```blocks3
+> when green flag clicked
+> go to x: (0) y: (-40)
+> point in direction (90)
+> show
+> ```
+
+> [!TASK]
+>
+> Add another `when green flag clicked`{:class="block3events"} block, then add a `forever`{:class="block3control"} loop.
 >
 > Inside the loop, add an `if then`{:class="block3control"} block that checks whether the `up arrow`{:class="block3sensing"} key is pressed. When it is, make Neil move up by adding a `change y by ()`{:class="block3motion"} block.
 >

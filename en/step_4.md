@@ -16,6 +16,8 @@ Here's the `Win` backdrop from the example project:
 >
 > Make a new variable called `game over`{:class="block3variables"}, and choose **For all sprites**.
 >
+> This one is just for the code to use, so untick its checkbox to hide it from the player.
+>
 > On the Stage, add it to your `when green flag clicked`{:class="block3events"} script and set it to `0` at the start.
 >
 > ```blocks3
@@ -53,4 +55,34 @@ Here's the `Win` backdrop from the example project:
 > set [game over v] to (0)
 > ```
 
-Click the green flag and smash everything in town. When the last object is gone, your `Win` backdrop appears.
+> [!TASK]
+>
+> When the game is over, Neil should stop moving. Click on the `Neil`{:class="block3looks"} sprite and wrap all of his movement code in an `if then`{:class="block3control"} block that only runs while `game over`{:class="block3variables"} is `0`.
+>
+> ```blocks3
+> when green flag clicked
+> forever
+> +if <(game over) = (0)> then
+> if <key (up arrow v) pressed?> then
+> change y by (5)
+> next costume
+> end
+> if <key (down arrow v) pressed?> then
+> change y by (-5)
+> next costume
+> end
+> if <key (left arrow v) pressed?> then
+> change x by (-5)
+> point in direction (-90)
+> next costume
+> end
+> if <key (right arrow v) pressed?> then
+> change x by (5)
+> point in direction (90)
+> next costume
+> end
+> end
+> end
+> ```
+
+Click the green flag and smash everything in town. When the last object is gone, your `Win` backdrop appears — and Neil stops moving.

@@ -10,3 +10,11 @@ steps:
   - title: Add stuff to smash
   - title: Reward Neil
   - title: Winning
+  - title: Chasing Neil
+  - title: Catching Neil
+  - title: Back to the sea Neil
+  - title: Add cars and barriers
+  - title: Give Neil a voice
+    completion:
+      - internal
+      - external
