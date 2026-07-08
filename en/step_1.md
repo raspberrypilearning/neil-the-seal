@@ -16,7 +16,7 @@ Click on the `Neil`{:class="block3looks"} sprite so you can add code to it.
 >
 > Inside the loop, add an `if then`{:class="block3control"} block that checks whether the `up arrow`{:class="block3sensing"} key is pressed. When it is, make Neil move up by adding a `change y by ()`{:class="block3motion"} block.
 >
-> ```blocks
+> ```blocks3
 > when green flag clicked
 > forever
 > if <key (up arrow v) pressed?> then
@@ -33,7 +33,7 @@ Now you can add movement for the other three arrow keys.
 >
 > Add another `if then`{:class="block3control"} block inside the `forever`{:class="block3control"} loop, below the first one. This time, check for the `down arrow`{:class="block3sensing"} key and move Neil down.
 >
-> ```blocks
+> ```blocks3
 > if <key (down arrow v) pressed?> then
 > change y by (-5)
 > end
@@ -45,7 +45,7 @@ Moving up and down changes Neil's `y` position. To move him left and right, you 
 >
 > Add two more `if then`{:class="block3control"} blocks to check for the `left arrow`{:class="block3sensing"} and `right arrow`{:class="block3sensing"} keys, using `change x by ()`{:class="block3motion"} to move Neil.
 >
-> ```blocks
+> ```blocks3
 > if <key (left arrow v) pressed?> then
 > change x by (-5)
 > end
@@ -60,7 +60,7 @@ Click the green flag and try all four arrow keys. Neil moves around, but he alwa
 >
 > Add a `point in direction ()`{:class="block3motion"} block inside the `left arrow`{:class="block3sensing"} and `right arrow`{:class="block3sensing"} `if then`{:class="block3control"} blocks. Point Neil in direction `-90` to face left, and `90` to face right.
 >
-> ```blocks
+> ```blocks3
 > if <key (left arrow v) pressed?> then
 > change x by (-5)
 > point in direction (-90)
@@ -89,7 +89,7 @@ Here is how the two costumes look in the example project. It's up to you how you
 >
 > Go back to the `Code`{:class="block3control"} tab. Add a `next costume`{:class="block3looks"} block inside each of your four arrow-key `if then`{:class="block3control"} blocks, so Neil changes costume whenever he moves.
 >
-> ```blocks
+> ```blocks3
 > if <key (up arrow v) pressed?> then
 > change y by (5)
 > next costume
