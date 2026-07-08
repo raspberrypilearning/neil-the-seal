@@ -1,45 +1,111 @@
-## What you will make
-OR
-## What you will do - change meta if you use this
+## Make Neil move
 
-A brief description - one or two sentences. 
+In this step, you'll get Neil the seal moving around the town using the arrow keys.
 
---- print-only ---
+> [!TASK]
+>
+> Open the [Neil the Seal starter project](https://scratch.mit.edu/projects/1352072422/editor).
+>
+> The starter project has all the sprites and backdrops you need.
 
-![ALT TEXT](images/IMAGE.png)
+Click on the `Neil`{:class="block3looks"} sprite so you can add code to it.
 
---- /print-only ---
+> [!TASK]
+>
+> Add a `when green flag clicked`{:class="block3events"} block, then add a `forever`{:class="block3control"} loop.
+>
+> Inside the loop, add an `if then`{:class="block3control"} block that checks whether the `up arrow`{:class="block3sensing"} key is pressed. When it is, make Neil move up by adding a `change y by ()`{:class="block3motion"} block.
+>
+> ```blocks
+> when green flag clicked
+> forever
+> if <key (up arrow v) pressed?> then
+> change y by (5)
+> end
+> end
+> ```
 
---- no-print ---
+Click the green flag and press the up arrow. Neil should move up the screen.
 
-[Editor embed](https://editor.raspberrypi.org/en/embed/viewer/project-slug)
+Now you can add movement for the other three arrow keys.
 
---- /no-print ---
+> [!TASK]
+>
+> Add another `if then`{:class="block3control"} block inside the `forever`{:class="block3control"} loop, below the first one. This time, check for the `down arrow`{:class="block3sensing"} key and move Neil down.
+>
+> ```blocks
+> if <key (down arrow v) pressed?> then
+> change y by (-5)
+> end
+> ```
 
---- no-print ---
+Moving up and down changes Neil's `y` position. To move him left and right, you need to change his `x` position instead.
 
-Video embed
+> [!TASK]
+>
+> Add two more `if then`{:class="block3control"} blocks to check for the `left arrow`{:class="block3sensing"} and `right arrow`{:class="block3sensing"} keys, using `change x by ()`{:class="block3motion"} to move Neil.
+>
+> ```blocks
+> if <key (left arrow v) pressed?> then
+> change x by (-5)
+> end
+> if <key (right arrow v) pressed?> then
+> change x by (5)
+> end
+> ```
 
-<video width="640" height="360" controls>
-<source src="images/videoname.mp4" type="video/mp4">
-</video>
+Click the green flag and try all four arrow keys. Neil moves around, but he always faces the same way. You can make him face left and right as he walks.
 
-Youtube embed 
-<html>
-<div style="position: relative; overflow: hidden; padding-top: 56.25%;">
-<iframe style="position: absolute; top: 0; left: 0; right: 0; width: 100%; height: 100%; border: none;" src="https://www.youtube.com/embed/XXXXXXXXX?rel=0&cc_load_policy=1" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share">
-</iframe>
-</div><br>
-</html>
+> [!TASK]
+>
+> Add a `point in direction ()`{:class="block3motion"} block inside the `left arrow`{:class="block3sensing"} and `right arrow`{:class="block3sensing"} `if then`{:class="block3control"} blocks. Point Neil in direction `-90` to face left, and `90` to face right.
+>
+> ```blocks
+> if <key (left arrow v) pressed?> then
+> change x by (-5)
+> point in direction (-90)
+> end
+> if <key (right arrow v) pressed?> then
+> change x by (5)
+> point in direction (90)
+> end
+> ```
 
-Scratch embed
-<div class="scratch-preview">
- <iframe allowtransparency="true" width="485" height="402" src="https://scratch.mit.edu/projects/embed/XXXXXXXXX/?autostart=false" frameborder="0"></iframe>
-</div>
+Right now Neil slides around without moving his body. You can bring him to life by giving him more than one costume and switching between them as he walks.
 
---- /no-print ---
+> [!TASK]
+>
+> Click the `Costumes`{:class="block3looks"} tab. Neil has one costume, called `seal1`.
+>
+> Right-click on `seal1` and choose **duplicate**. This makes a copy called `seal2`.
+>
+> In the paint editor, click on one of Neil's legs to select it and move it a little. Do the same to his other leg, so `seal2` has the legs in a different position to `seal1`.
 
-### You will need:
-- a
-- b
-- c
+Here is how the two costumes look in the example project. It's up to you how you move the legs — the more different your two costumes are, the more Neil will look like he's moving.
+
+![Neil's seal1 and seal2 costumes side by side, with the legs in different positions](images/neil-costumes-first.svg)
+
+> [!TASK]
+>
+> Go back to the `Code`{:class="block3control"} tab. Add a `next costume`{:class="block3looks"} block inside each of your four arrow-key `if then`{:class="block3control"} blocks, so Neil changes costume whenever he moves.
+>
+> ```blocks
+> if <key (up arrow v) pressed?> then
+> change y by (5)
+> next costume
+> end
+> ```
+
+Click the green flag and move Neil around. His two costumes swap back and forth, so he looks like he's waddling along.
+
+Two costumes give Neil a simple wobble. Adding a few more makes his movement much smoother.
+
+> [!TASK]
+>
+> Duplicate one of your costumes to make `seal3`, then move the legs again to make a new pose. Keep going until Neil has five costumes, each with the legs in a slightly different position.
+
+In the example project, Neil has five costumes that move his legs up and down as he waddles. Yours can be as different as you like.
+
+![Neil's five costumes side by side, with the legs in slightly different positions in each one](images/neil-costumes-all.svg)
+
+Now the `next costume`{:class="block3looks"} block cycles through all five poses, giving Neil a smooth waddle as he explores the town.
