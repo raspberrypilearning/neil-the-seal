@@ -8,7 +8,7 @@ In this step, you'll get Neil the seal moving around the town using the arrow ke
 >
 > The starter project has all the sprites and backdrops you need.
 
-Click on the `Neil`{:class="block3looks"} sprite so you can add code to it.
+Click on the `Neil`{:class="block3looks"} sprite so you can add your code to it.
 
 > [!TASK]
 >
@@ -83,7 +83,7 @@ Right now Neil slides around without moving his body. You can bring him to life 
 
 Here is how the two costumes look in the example project. It's up to you how you move the legs — the more different your two costumes are, the more Neil will look like he's moving.
 
-![Neil's seal1 and seal2 costumes side by side, with the legs in different positions](images/neil-costumes-first.svg)
+![Neil's seal1 and seal2 costumes side by side, with the legs in different positions](images/neil-costumes-first.png)
 
 > [!TASK]
 >
@@ -106,6 +106,6 @@ Two costumes give Neil a simple wobble. Adding a few more makes his movement muc
 
 In the example project, Neil has five costumes that move his legs up and down as he waddles. Yours can be as different as you like.
 
-![Neil's five costumes side by side, with the legs in slightly different positions in each one](images/neil-costumes-all.svg)
+![Neil's five costumes side by side, with the legs in slightly different positions in each one](images/neil-costumes-all.png)
 
 Now the `next costume`{:class="block3looks"} block cycles through all five poses, giving Neil a smooth waddle as he explores the town.
