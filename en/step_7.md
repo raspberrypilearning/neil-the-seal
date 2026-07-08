@@ -1,74 +1,74 @@
-## Back to the sea Neil
+## Catching Neil
 
-In this step, you'll end the game when Neil runs out of lives.
-
-> [!TASK]
->
-> Click on the `Stage`, then click the `Backdrops`{:class="block3looks"} tab.
->
-> Hover over **Choose a Backdrop** and click **Paint** to make a new, blank backdrop. Call it `game over`, for when Neil runs out of lives. As before, you can design it however you like.
-
-Here's the `game over` backdrop from the example project:
-
-![The game over backdrop from the example project, a blue screen reading BACK TO SEA!](images/game-over-backdrop.png)
+In this step, you'll give Neil some lives to lose when the Ranger catches him.
 
 > [!TASK]
 >
-> Neil loses when he runs out of lives. On the Stage, add a new script — much like your winning one — using a `forever`{:class="block3control"} loop and an `if then`{:class="block3control"} block.
+> Click on the `Stage`. Make a new variable called `lives`{:class="block3variables"}, and choose **For all sprites**.
 >
-> When `lives`{:class="block3variables"} is less than `1` and `game over`{:class="block3variables"} is `0`, switch to your `game over` backdrop and set `game over`{:class="block3variables"} to `1`.
+> Tick its checkbox so the player can see how many lives Neil has left.
+>
+> Add it to your `when green flag clicked`{:class="block3events"} script and set `lives`{:class="block3variables"} to `3` at the start.
+>
+> ```blocks3
+> when green flag clicked
+> switch backdrop to (Town v)
+> set [score v] to (0)
+> set [stuff to smash v] to (0)
+> set [game over v] to (0)
+> +set [lives v] to (3)
+> ```
+
+> [!TASK]
+>
+> Click on the `Ranger`{:class="block3looks"} sprite. When the Ranger catches Neil, Neil should lose a life.
+>
+> At the bottom of the `if then`{:class="block3control"} block, below the movement code, add an `if then`{:class="block3control"} block that checks if the Ranger is `touching Neil`{:class="block3sensing"}. If they are, `change lives by ()`{:class="block3variables"} by `-1` and send the Ranger back to their starting position.
 >
 > ```blocks3
 > when green flag clicked
 > forever
-> if <<(lives) < (1)> and <(game over) = (0)>> then
-> switch backdrop to (game over v)
-> set [game over v] to (1)
+> if <(game over) = (0)> then
+> if <(neil x) > (x position)> then
+> change x by (2)
+> else
+> change x by (-2)
+> end
+> if <(neil y) > (y position)> then
+> change y by (2)
+> else
+> change y by (-2)
+> end
+> +if <touching (Neil v)?> then
+> change [lives v] by (-1)
+> go to x: (-200) y: (140)
+> end
 > end
 > end
 > ```
 
 > [!TASK]
 >
-> Make a new message called `game over`. Add a `broadcast ()`{:class="block3events"} block to your new script, so the other sprites know the game has ended.
+> Now tell the rest of the game that Neil has been caught. Make a new message called `got ya`, and add a `broadcast () and wait`{:class="block3events"} block inside your new `if then`{:class="block3control"} block.
 >
 > ```blocks3
-> if <<(lives) < (1)> and <(game over) = (0)>> then
-> switch backdrop to (game over v)
-> set [game over v] to (1)
-> +broadcast (game over v)
+> if <touching (Neil v)?> then
+> change [lives v] by (-1)
+> go to x: (-200) y: (140)
+> +broadcast (got ya v) and wait
 > end
 > ```
 
 > [!TASK]
 >
-> Click on the `Ranger`{:class="block3looks"} sprite. When the game is over, the Ranger sends Neil back to sea.
+> Click on the `Neil`{:class="block3looks"} sprite. Neil needs to react when he's caught.
 >
-> Add a `when I receive ()`{:class="block3events"} block for the `game over` message, and make the Ranger `say () for () seconds`{:class="block3looks"} to say "Off you go!".
->
-> ```blocks3
-> when I receive (game over v)
-> say [Off you go!] for (1) seconds
-> ```
-
-> [!TASK]
->
-> When the game ends, all the stop sign clones are still lying around town. Get them to tidy themselves up.
->
-> Click on the `Sign`{:class="block3looks"} sprite. In the clone's `forever`{:class="block3control"} loop, add an `if then`{:class="block3control"} block that checks whether `game over`{:class="block3variables"} is `1`. If it is, `delete this clone`{:class="block3control"}.
+> Add a `when I receive ()`{:class="block3events"} block for the `got ya` message. Send Neil back to his starting position, then make him `say () for () seconds`{:class="block3looks"} to say "Hey!".
 >
 > ```blocks3
-> when I start as a clone
-> forever
-> if <<touching (Neil v)?> and <key (space v) pressed?>> then
-> change [score v] by (10)
-> change [stuff to smash v] by (-1)
-> delete this clone
-> end
-> +if <(game over) = (1)> then
-> delete this clone
-> end
-> end
+> when I receive (got ya v)
+> go to x: (0) y: (-40)
+> say [Hey!] for (0.6) seconds
 > ```
 
-Click the green flag and let the Ranger catch Neil three times. The `game over` backdrop appears, the Ranger sends Neil back to sea, and the leftover stop signs disappear.
+Click the green flag and let the Ranger catch Neil. Neil says "Hey!", pops back to the start, and loses a life.

@@ -1,89 +1,62 @@
-## Winning
+## Reward Neil
 
-In this step, you'll let the player win by smashing everything in town.
-
-> [!TASK]
->
-> Click on the `Stage`, then click the `Backdrops`{:class="block3looks"} tab.
->
-> Hover over **Choose a Backdrop** and click **Paint** to make a new, blank backdrop. Call it `Win`, then give it a background and some text to celebrate finishing the game — you can write whatever you like.
-
-Here's the `Win` backdrop from the example project:
-
-![The Win backdrop from the example project, a green screen reading TOWN DEMOLISHED!](images/win-backdrop.png)
+In this step, you'll keep score as Neil smashes things, and keep track of how much is left to smash.
 
 > [!TASK]
 >
-> Make a new variable called `game over`{:class="block3variables"}, and choose **For all sprites**.
+> Click on the `Stage`.
 >
-> This one is just for the code to use, so untick its checkbox to hide it from the player.
+> Make two new variables, `score`{:class="block3variables"} and `stuff to smash`{:class="block3variables"}, and choose **For all sprites** for each one.
 >
-> On the Stage, add it to your `when green flag clicked`{:class="block3events"} script and set it to `0` at the start.
+> Tick the checkbox next to `score`{:class="block3variables"} so the player can see it, and untick `stuff to smash`{:class="block3variables"} to hide it.
+>
+> Add a `when green flag clicked`{:class="block3events"} block to the Stage that sets both variables to `0`.
 >
 > ```blocks3
 > when green flag clicked
 > set [score v] to (0)
 > set [stuff to smash v] to (0)
-> +set [game over v] to (0)
 > ```
 
 > [!TASK]
 >
-> The player wins when there's nothing left to smash. On the Stage, add a new script to check for this.
+> Click on the `Sign`{:class="block3looks"} sprite. Each sign that gets made should add one to the total amount of stuff to smash.
 >
-> Start with a `wait () seconds`{:class="block3control"} block for `0.2` seconds, so the signs, cars, and barriers have time to be counted before the check begins. Then use a `forever`{:class="block3control"} loop with an `if then`{:class="block3control"} block. When `stuff to smash`{:class="block3variables"} is less than `1` and `game over`{:class="block3variables"} is `0`, switch to your `Win` backdrop and set `game over`{:class="block3variables"} to `1`.
+> Inside the `repeat ()`{:class="block3control"} loop, add a `change stuff to smash by ()`{:class="block3variables"} block to count each clone as it's created.
+>
+> Then add a `wait () seconds`{:class="block3control"} block for `0.1` seconds at the very top of the script. This gives the Stage time to reset `stuff to smash`{:class="block3variables"} to `0` before the signs start counting.
 >
 > ```blocks3
 > when green flag clicked
-> wait (0.2) seconds
+> +wait (0.1) seconds
+> show
+> repeat (6)
+> go to x: (pick random (-220) to (220)) y: (pick random (-100) to (130))
+> create clone of (myself v)
+> +change [stuff to smash v] by (1)
+> end
+> hide
+> ```
+
+> [!TIP]
+>
+> Both this script and the Stage's setup script start when the green flag is clicked, so they run at the same time. Without the short wait, the signs could start adding to `stuff to smash` before the Stage sets it back to `0`, and the total would come out wrong.
+
+> [!TASK]
+>
+> Now, when Neil smashes a sign, reward the player with some points and take one off the amount left to smash.
+>
+> In the clone script, inside the `if then`{:class="block3control"} block, add a `change score by ()`{:class="block3variables"} block to add `10` points and a `change stuff to smash by ()`{:class="block3variables"} block to take away `1`.
+>
+> ```blocks3
+> when I start as a clone
 > forever
-> if <<(stuff to smash) < (1)> and <(game over) = (0)>> then
-> switch backdrop to (Win v)
-> set [game over v] to (1)
+> if <<touching (Neil v)?> and <key (space v) pressed?>> then
+> +change [score v] by (10)
+> +change [stuff to smash v] by (-1)
+> delete this clone
 > end
 > end
 > ```
 
-> [!TASK]
->
-> When the game starts, it should always begin on the `Town` backdrop. Add a `switch backdrop to ()`{:class="block3looks"} block to the top of your setup script.
->
-> ```blocks3
-> when green flag clicked
-> +switch backdrop to (Town v)
-> set [score v] to (0)
-> set [stuff to smash v] to (0)
-> set [game over v] to (0)
-> ```
-
-> [!TASK]
->
-> When the game is over, Neil should stop moving. Click on the `Neil`{:class="block3looks"} sprite and wrap all of his movement code in an `if then`{:class="block3control"} block that only runs while `game over`{:class="block3variables"} is `0`.
->
-> ```blocks3
-> when green flag clicked
-> forever
-> +if <(game over) = (0)> then
-> if <key (up arrow v) pressed?> then
-> change y by (5)
-> next costume
-> end
-> if <key (down arrow v) pressed?> then
-> change y by (-5)
-> next costume
-> end
-> if <key (left arrow v) pressed?> then
-> change x by (-5)
-> point in direction (-90)
-> next costume
-> end
-> if <key (right arrow v) pressed?> then
-> change x by (5)
-> point in direction (90)
-> next costume
-> end
-> end
-> end
-> ```
-
-Click the green flag and smash everything in town. When the last object is gone, your `Win` backdrop appears — and Neil stops moving.
+Click the green flag and smash some signs. Your score goes up, and the amount of stuff left to smash goes down.

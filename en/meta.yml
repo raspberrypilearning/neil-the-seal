@@ -4,6 +4,7 @@ description: Code a game where you help Neil the seal waddle around town.
 listed: false
 pdf: false
 steps:
+  - title: What you will make
   - title: Make Neil move
     completion:
       - engaged
