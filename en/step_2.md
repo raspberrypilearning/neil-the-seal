@@ -6,10 +6,11 @@ In this step, you'll fill the town with stop signs for Neil to smash.
 >
 > Click on the `Sign`{:class="block3looks"} sprite.
 >
-> Add a `when green flag clicked`{:class="block3events"} block. Then use a `repeat ()`{:class="block3control"} loop to move to six random spots, making a clone at each one.
+> Add a `when green flag clicked`{:class="block3events"} block, then a `show`{:class="block3looks"} block, because the sign starts off hidden. Then use a `repeat ()`{:class="block3control"} loop to move to six random spots, making a clone at each one.
 >
 > ```blocks3
 > when green flag clicked
+> show
 > repeat (6)
 > go to x: (pick random (-220) to (220)) y: (pick random (-100) to (130))
 > create clone of (myself v)
@@ -20,34 +21,27 @@ Click the green flag. Six stop signs appear around the town — but you can stil
 
 > [!TASK]
 >
-> Add a `hide`{:class="block3looks"} block at the start, so the original sign is hidden.
->
-> Then start a new script with a `when I start as a clone`{:class="block3control"} block followed by a `show`{:class="block3looks"} block, so each clone shows itself.
+> Add a `hide`{:class="block3looks"} block to the end of the script, so the original sign is hidden once all the clones have been made.
 >
 > ```blocks3
 > when green flag clicked
-> +hide
+> show
 > repeat (6)
 > go to x: (pick random (-220) to (220)) y: (pick random (-100) to (130))
 > create clone of (myself v)
 > end
-> ```
->
-> ```blocks3
-> when I start as a clone
-> show
+> +hide
 > ```
 
 Now only the six clones are visible.
 
 > [!TASK]
 >
-> Add a `forever`{:class="block3control"} loop to your clone script. Inside it, use an `if then`{:class="block3control"} block to check whether the clone is `touching Neil`{:class="block3sensing"}. If it is, `delete this clone`{:class="block3control"}.
+> Start a new script with a `when I start as a clone`{:class="block3control"} block. Add a `forever`{:class="block3control"} loop, and inside it use an `if then`{:class="block3control"} block to check whether the clone is `touching Neil`{:class="block3sensing"}. If it is, `delete this clone`{:class="block3control"}.
 >
 > ```blocks3
 > when I start as a clone
-> show
-> +forever
+> forever
 > if <touching (Neil v)?> then
 > delete this clone
 > end
@@ -64,7 +58,6 @@ Move Neil into a sign and it disappears.
 >
 > ```blocks3
 > when I start as a clone
-> show
 > forever
 > +if <<touching (Neil v)?> and <key (space v) pressed?>> then
 > delete this clone

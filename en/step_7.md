@@ -59,7 +59,6 @@ Here's the `GameOver` backdrop from the example project:
 >
 > ```blocks3
 > when I start as a clone
-> show
 > forever
 > if <<touching (Neil v)?> and <key (space v) pressed?>> then
 > change [score v] by (10)

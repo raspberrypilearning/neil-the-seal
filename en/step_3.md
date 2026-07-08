@@ -29,12 +29,13 @@ In this step, you'll keep score as Neil smashes things, and keep track of how mu
 > ```blocks3
 > when green flag clicked
 > +wait (0.1) seconds
-> hide
+> show
 > repeat (6)
 > go to x: (pick random (-220) to (220)) y: (pick random (-100) to (130))
 > create clone of (myself v)
 > +change [stuff to smash v] by (1)
 > end
+> hide
 > ```
 
 > [!TIP]
@@ -49,7 +50,6 @@ In this step, you'll keep score as Neil smashes things, and keep track of how mu
 >
 > ```blocks3
 > when I start as a clone
-> show
 > forever
 > if <<touching (Neil v)?> and <key (space v) pressed?>> then
 > +change [score v] by (10)
