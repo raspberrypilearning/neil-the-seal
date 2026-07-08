@@ -1,33 +1,74 @@
-## Add cars and barriers
+## Back to the sea Neil
 
-In this step, you'll add cars and barriers for Neil to smash too. Instead of coding them from scratch, you'll reuse the code you wrote for the stop signs.
-
-> [!TASK]
->
-> Click on the `Sign`{:class="block3looks"} sprite. Drag each of its two scripts onto the `Car`{:class="block3looks"} sprite in the sprite list, then onto the `Barrier`{:class="block3looks"} sprite, to copy the code across.
->
-> Both sprites already have the `create clone of ()`{:class="block3control"} and `touching ()`{:class="block3sensing"} blocks pointing at the right things, so the code works straight away.
-
-> [!NOPRINT]
->
-> Here's how to copy a script from one sprite to another:
->
-> ![Animated image showing a script being dragged onto another sprite in the sprite list to copy it](images/copy-script.gif)
+In this step, you'll end the game when Neil runs out of lives.
 
 > [!TASK]
 >
-> Click on the `Car`{:class="block3looks"} sprite. In the `repeat ()`{:class="block3control"} loop, change the number to decide how many cars appear around town. It's up to you!
+> Click on the `Stage`, then click the `Backdrops`{:class="block3looks"} tab.
 >
-> Then do the same on the `Barrier`{:class="block3looks"} sprite.
+> Hover over **Choose a Backdrop** and click **Paint** to make a new, blank backdrop. Call it `game over`, for when Neil runs out of lives. As before, you can design it however you like.
+
+Here's the `game over` backdrop from the example project:
+
+![The game over backdrop from the example project, a blue screen reading BACK TO SEA!](images/game-over-backdrop.png)
 
 > [!TASK]
 >
-> Now decide how many points each one is worth. On both the `Car`{:class="block3looks"} and `Barrier`{:class="block3looks"} sprites, change the number in the `change score by ()`{:class="block3variables"} block.
+> Neil loses when he runs out of lives. On the Stage, add a new script — much like your winning one — using a `forever`{:class="block3control"} loop and an `if then`{:class="block3control"} block.
 >
-> Maybe some things are trickier to reach and should be worth more?
+> When `lives`{:class="block3variables"} is less than `1` and `game over`{:class="block3variables"} is `0`, switch to your `game over` backdrop and set `game over`{:class="block3variables"} to `1`.
+>
+> ```blocks3
+> when green flag clicked
+> forever
+> if <<(lives) < (1)> and <(game over) = (0)>> then
+> switch backdrop to (game over v)
+> set [game over v] to (1)
+> end
+> end
+> ```
 
 > [!TASK]
 >
-> You can also choose where each type of object appears. In the `go to x: () y: ()`{:class="block3motion"} block, change the `pick random () to ()`{:class="block3operators"} numbers to set the area they spawn in — for example, keeping the cars low down so they stay on the road.
+> Make a new message called `game over`. Add a `broadcast ()`{:class="block3events"} block to your new script, so the other sprites know the game has ended.
+>
+> ```blocks3
+> if <<(lives) < (1)> and <(game over) = (0)>> then
+> switch backdrop to (game over v)
+> set [game over v] to (1)
+> +broadcast (game over v)
+> end
+> ```
 
-Click the green flag. The town is now full of signs, cars, and barriers for Neil to smash — each worth the points you chose, in the places you picked.
+> [!TASK]
+>
+> Click on the `Ranger`{:class="block3looks"} sprite. When the game is over, the Ranger sends Neil back to sea.
+>
+> Add a `when I receive ()`{:class="block3events"} block for the `game over` message, and make the Ranger `say () for () seconds`{:class="block3looks"} to say "Off you go!".
+>
+> ```blocks3
+> when I receive (game over v)
+> say [Off you go!] for (1) seconds
+> ```
+
+> [!TASK]
+>
+> When the game ends, all the stop sign clones are still lying around town. Get them to tidy themselves up.
+>
+> Click on the `Sign`{:class="block3looks"} sprite. In the clone's `forever`{:class="block3control"} loop, add an `if then`{:class="block3control"} block that checks whether `game over`{:class="block3variables"} is `1`. If it is, `delete this clone`{:class="block3control"}.
+>
+> ```blocks3
+> when I start as a clone
+> forever
+> if <<touching (Neil v)?> and <key (space v) pressed?>> then
+> change [score v] by (10)
+> change [stuff to smash v] by (-1)
+> delete this clone
+> end
+> +if <(game over) = (1)> then
+> delete this clone
+> end
+> end
+> ```
+
+Click the green flag and let the Ranger catch Neil three times. The `game over` backdrop appears, the Ranger sends Neil back to sea, and the leftover stop signs disappear.

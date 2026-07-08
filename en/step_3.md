@@ -1,62 +1,68 @@
-## Reward Neil
+## Add stuff to smash
 
-In this step, you'll keep score as Neil smashes things, and keep track of how much is left to smash.
-
-> [!TASK]
->
-> Click on the `Stage`.
->
-> Make two new variables, `score`{:class="block3variables"} and `stuff to smash`{:class="block3variables"}, and choose **For all sprites** for each one.
->
-> Tick the checkbox next to `score`{:class="block3variables"} so the player can see it, and untick `stuff to smash`{:class="block3variables"} to hide it.
->
-> Add a `when green flag clicked`{:class="block3events"} block to the Stage that sets both variables to `0`.
->
-> ```blocks3
-> when green flag clicked
-> set [score v] to (0)
-> set [stuff to smash v] to (0)
-> ```
+In this step, you'll fill the town with stop signs for Neil to smash.
 
 > [!TASK]
 >
-> Click on the `Sign`{:class="block3looks"} sprite. Each sign that gets made should add one to the total amount of stuff to smash.
+> Click on the `Sign`{:class="block3looks"} sprite.
 >
-> Inside the `repeat ()`{:class="block3control"} loop, add a `change stuff to smash by ()`{:class="block3variables"} block to count each clone as it's created.
->
-> Then add a `wait () seconds`{:class="block3control"} block for `0.1` seconds at the very top of the script. This gives the Stage time to reset `stuff to smash`{:class="block3variables"} to `0` before the signs start counting.
+> Add a `when green flag clicked`{:class="block3events"} block, then a `show`{:class="block3looks"} block, because the sign starts off hidden. Then use a `repeat ()`{:class="block3control"} loop to move to six random spots, making a clone at each one.
 >
 > ```blocks3
 > when green flag clicked
-> +wait (0.1) seconds
 > show
 > repeat (6)
 > go to x: (pick random (-220) to (220)) y: (pick random (-100) to (130))
 > create clone of (myself v)
-> +change [stuff to smash v] by (1)
 > end
-> hide
 > ```
 
-> [!TIP]
->
-> Both this script and the Stage's setup script start when the green flag is clicked, so they run at the same time. Without the short wait, the signs could start adding to `stuff to smash` before the Stage sets it back to `0`, and the total would come out wrong.
+Click the green flag. Six stop signs appear around the town — but you can still see the original sign that the clones are made from.
 
 > [!TASK]
 >
-> Now, when Neil smashes a sign, reward the player with some points and take one off the amount left to smash.
+> Add a `hide`{:class="block3looks"} block to the end of the script, so the original sign is hidden once all the clones have been made.
 >
-> In the clone script, inside the `if then`{:class="block3control"} block, add a `change score by ()`{:class="block3variables"} block to add `10` points and a `change stuff to smash by ()`{:class="block3variables"} block to take away `1`.
+> ```blocks3
+> when green flag clicked
+> show
+> repeat (6)
+> go to x: (pick random (-220) to (220)) y: (pick random (-100) to (130))
+> create clone of (myself v)
+> end
+> +hide
+> ```
+
+Now only the six clones are visible.
+
+> [!TASK]
+>
+> Start a new script with a `when I start as a clone`{:class="block3control"} block. Add a `forever`{:class="block3control"} loop, and inside it use an `if then`{:class="block3control"} block to check whether the clone is `touching Neil`{:class="block3sensing"}. If it is, `delete this clone`{:class="block3control"}.
 >
 > ```blocks3
 > when I start as a clone
 > forever
-> if <<touching (Neil v)?> and <key (space v) pressed?>> then
-> +change [score v] by (10)
-> +change [stuff to smash v] by (-1)
+> if <touching (Neil v)?> then
 > delete this clone
 > end
 > end
 > ```
 
-Click the green flag and smash some signs. Your score goes up, and the amount of stuff left to smash goes down.
+Move Neil into a sign and it disappears.
+
+> [!TASK]
+>
+> Right now the signs vanish the moment Neil touches them. To make Neil *smash* them, the player should have to press the space bar too.
+>
+> Change the `if then`{:class="block3control"} condition so it also checks whether the `space`{:class="block3sensing"} key is pressed, using an `and`{:class="block3operators"} block to join the two checks.
+>
+> ```blocks3
+> when I start as a clone
+> forever
+> +if <<touching (Neil v)?> and <key (space v) pressed?>> then
+> delete this clone
+> end
+> end
+> ```
+
+Now Neil has to bump into a sign and press the space bar to smash it.

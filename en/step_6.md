@@ -1,29 +1,93 @@
-## Catching Neil
+## Chasing Neil
 
-In this step, you'll give Neil some lives to lose when the Ranger catches him.
+In this step, you'll add a Ranger who chases Neil around the town.
 
 > [!TASK]
 >
-> Click on the `Stage`. Make a new variable called `lives`{:class="block3variables"}, and choose **For all sprites**.
+> Click on the `Ranger`{:class="block3looks"} sprite.
 >
-> Tick its checkbox so the player can see how many lives Neil has left.
->
-> Add it to your `when green flag clicked`{:class="block3events"} script and set `lives`{:class="block3variables"} to `3` at the start.
+> Add a `when green flag clicked`{:class="block3events"} block. Use a `go to x: () y: ()`{:class="block3motion"} block to place the Ranger in the corner, and a `show`{:class="block3looks"} block to make sure they're visible.
 >
 > ```blocks3
 > when green flag clicked
-> switch backdrop to (Town v)
-> set [score v] to (0)
-> set [stuff to smash v] to (0)
-> set [game over v] to (0)
-> +set [lives v] to (3)
+> go to x: (-200) y: (140)
+> show
 > ```
 
 > [!TASK]
 >
-> Click on the `Ranger`{:class="block3looks"} sprite. When the Ranger catches Neil, Neil should lose a life.
+> The Ranger should only chase Neil while the game is being played. Add a `forever`{:class="block3control"} loop with an `if then`{:class="block3control"} block that checks `game over`{:class="block3variables"} is `0`.
 >
-> At the bottom of the `if then`{:class="block3control"} block, below the movement code, add an `if then`{:class="block3control"} block that checks if the Ranger is `touching Neil`{:class="block3sensing"}. If they are, `change lives by ()`{:class="block3variables"} by `-1` and send the Ranger back to their starting position.
+> ```blocks3
+> when green flag clicked
+> forever
+> if <(game over) = (0)> then
+> end
+> end
+> ```
+
+> [!TASK]
+>
+> For the Ranger to chase Neil, they need to know where Neil is.
+>
+> Click on the `Neil`{:class="block3looks"} sprite and make two new variables, `neil x`{:class="block3variables"} and `neil y`{:class="block3variables"}. Choose **For all sprites** so the Ranger can read them too.
+>
+> Untick both checkboxes to hide these from the player.
+
+> [!TASK]
+>
+> Still on the `Neil`{:class="block3looks"} sprite, find his movement script. At the bottom of the movement code, inside the `if then`{:class="block3control"} block, set `neil x`{:class="block3variables"} and `neil y`{:class="block3variables"} to his current position.
+>
+> ```blocks3
+> when green flag clicked
+> forever
+> if <(game over) = (0)> then
+> if <key (up arrow v) pressed?> then
+> change y by (5)
+> next costume
+> end
+> if <key (down arrow v) pressed?> then
+> change y by (-5)
+> next costume
+> end
+> if <key (left arrow v) pressed?> then
+> change x by (-5)
+> point in direction (-90)
+> next costume
+> end
+> if <key (right arrow v) pressed?> then
+> change x by (5)
+> point in direction (90)
+> next costume
+> end
+> +set [neil x v] to (x position)
+> +set [neil y v] to (y position)
+> end
+> end
+> ```
+
+> [!TASK]
+>
+> Go back to the `Ranger`{:class="block3looks"} sprite. Inside the `if then`{:class="block3control"} block, make the Ranger move towards Neil's x position.
+>
+> Use an `if then else`{:class="block3control"} block: if `neil x`{:class="block3variables"} is greater than the Ranger's `x position`{:class="block3motion"}, `change x by ()`{:class="block3motion"} to move right, otherwise move left.
+>
+> ```blocks3
+> when green flag clicked
+> forever
+> if <(game over) = (0)> then
+> +if <(neil x) > (x position)> then
+> change x by (2)
+> else
+> change x by (-2)
+> end
+> end
+> end
+> ```
+
+> [!TASK]
+>
+> Now do the same for Neil's y position, so the Ranger follows Neil up and down as well.
 >
 > ```blocks3
 > when green flag clicked
@@ -34,41 +98,13 @@ In this step, you'll give Neil some lives to lose when the Ranger catches him.
 > else
 > change x by (-2)
 > end
-> if <(neil y) > (y position)> then
+> +if <(neil y) > (y position)> then
 > change y by (2)
 > else
 > change y by (-2)
 > end
-> +if <touching (Neil v)?> then
-> change [lives v] by (-1)
-> go to x: (-200) y: (140)
-> end
 > end
 > end
 > ```
 
-> [!TASK]
->
-> Now tell the rest of the game that Neil has been caught. Make a new message called `got ya`, and add a `broadcast () and wait`{:class="block3events"} block inside your new `if then`{:class="block3control"} block.
->
-> ```blocks3
-> if <touching (Neil v)?> then
-> change [lives v] by (-1)
-> go to x: (-200) y: (140)
-> +broadcast (got ya v) and wait
-> end
-> ```
-
-> [!TASK]
->
-> Click on the `Neil`{:class="block3looks"} sprite. Neil needs to react when he's caught.
->
-> Add a `when I receive ()`{:class="block3events"} block for the `got ya` message. Send Neil back to his starting position, then make him `say () for () seconds`{:class="block3looks"} to say "Hey!".
->
-> ```blocks3
-> when I receive (got ya v)
-> go to x: (0) y: (-40)
-> say [Hey!] for (0.6) seconds
-> ```
-
-Click the green flag and let the Ranger catch Neil. Neil says "Hey!", pops back to the start, and loses a life.
+Click the green flag. The Ranger now chases Neil wherever he waddles.

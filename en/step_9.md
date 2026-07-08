@@ -1,52 +1,33 @@
-## Give Neil a voice
+## Add cars and barriers
 
-At the moment, the player can just hold down the space bar to smash everything at once. In this step, you'll add a short delay — and give Neil something to say each time he smashes.
-
-> [!TASK]
->
-> Make a new list called `neil's words`{:class="block3variables"}, and choose **For all sprites**.
->
-> Using the list on the Stage, click the `+` to add a few things for Neil to shout when he smashes something. You can add as many as you like, and they can be anything you want!
->
-> Once you've added all your words, untick the list's checkbox to hide it from the player.
+In this step, you'll add cars and barriers for Neil to smash too. Instead of coding them from scratch, you'll reuse the code you wrote for the stop signs.
 
 > [!TASK]
 >
-> Click on the `Neil`{:class="block3looks"} sprite and find his movement script.
+> Click on the `Sign`{:class="block3looks"} sprite. Drag each of its two scripts onto the `Car`{:class="block3looks"} sprite in the sprite list, then onto the `Barrier`{:class="block3looks"} sprite, to copy the code across.
 >
-> With the rest of the movement code, inside the `if then`{:class="block3control"} block, add another `if then`{:class="block3control"} block that checks for the `space`{:class="block3sensing"} key. When it's pressed, `say () for () seconds`{:class="block3looks"} a random item from your list for `0.2` seconds.
+> Both sprites already have the `create clone of ()`{:class="block3control"} and `touching ()`{:class="block3sensing"} blocks pointing at the right things, so the code works straight away.
+
+> [!NOPRINT]
 >
-> ```blocks3
-> when green flag clicked
-> forever
-> if <(game over) = (0)> then
-> if <key (up arrow v) pressed?> then
-> change y by (5)
-> next costume
-> end
-> if <key (down arrow v) pressed?> then
-> change y by (-5)
-> next costume
-> end
-> if <key (left arrow v) pressed?> then
-> change x by (-5)
-> point in direction (-90)
-> next costume
-> end
-> if <key (right arrow v) pressed?> then
-> change x by (5)
-> point in direction (90)
-> next costume
-> end
-> +if <key (space v) pressed?> then
-> say (item (pick random (1) to (length of [neil's words v])) of [neil's words v]) for (0.2) seconds
-> end
-> set [neil x v] to (x position)
-> set [neil y v] to (y position)
-> end
-> end
-> ```
+> Here's how to copy a script from one sprite to another:
+>
+> ![Animated image showing a script being dragged onto another sprite in the sprite list to copy it](images/copy-script.gif)
 
-Using `length of ()`{:class="block3variables"} means Neil will always pick from however many things you added to the list.
+> [!TASK]
+>
+> Click on the `Car`{:class="block3looks"} sprite. In the `repeat ()`{:class="block3control"} loop, change the number to decide how many cars appear around town. It's up to you!
+>
+> Then do the same on the `Barrier`{:class="block3looks"} sprite.
 
-Click the green flag and smash away. Neil shouts something each time, and holding down the space bar no longer clears the whole town in an instant.
+> [!TASK]
+>
+> Now decide how many points each one is worth. On both the `Car`{:class="block3looks"} and `Barrier`{:class="block3looks"} sprites, change the number in the `change score by ()`{:class="block3variables"} block.
+>
+> Maybe some things are trickier to reach and should be worth more?
+
+> [!TASK]
+>
+> You can also choose where each type of object appears. In the `go to x: () y: ()`{:class="block3motion"} block, change the `pick random () to ()`{:class="block3operators"} numbers to set the area they spawn in — for example, keeping the cars low down so they stay on the road.
+
+Click the green flag. The town is now full of signs, cars, and barriers for Neil to smash — each worth the points you chose, in the places you picked.
