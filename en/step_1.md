@@ -63,11 +63,11 @@ Click the green flag and try all four arrow keys. Neil moves around, but he alwa
 > ```blocks3
 > if <key (left arrow v) pressed?> then
 > change x by (-5)
-> point in direction (-90)
+> +point in direction (-90)
 > end
 > if <key (right arrow v) pressed?> then
 > change x by (5)
-> point in direction (90)
+> +point in direction (90)
 > end
 > ```
 
@@ -92,7 +92,7 @@ Here is how the two costumes look in the example project. It's up to you how you
 > ```blocks3
 > if <key (up arrow v) pressed?> then
 > change y by (5)
-> next costume
+> +next costume
 > end
 > ```
 

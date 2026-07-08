@@ -26,7 +26,7 @@ Click the green flag. Six stop signs appear around the town — but you can stil
 >
 > ```blocks3
 > when green flag clicked
-> hide
+> +hide
 > repeat (6)
 > go to x: (pick random (-220) to (220)) y: (pick random (-100) to (130))
 > create clone of (myself v)
@@ -47,9 +47,9 @@ Now only the six clones are visible.
 > ```blocks3
 > when I start as a clone
 > show
-> forever
-> if <touching (Neil v)?> then
-> delete this clone
+> +forever
+> +if <touching (Neil v)?> then
+> +delete this clone
 > end
 > end
 > ```
@@ -58,7 +58,7 @@ Move Neil into a sign and it disappears.
 
 > [!TASK]
 >
-> Right now the signs vanish the moment Neil touches them. To make Neil *smash* them, he should have to press the space bar too.
+> Right now the signs vanish the moment Neil touches them. To make Neil *smash* them, the player should have to press the space bar too.
 >
 > Change the `if then`{:class="block3control"} condition so it also checks whether the `space`{:class="block3sensing"} key is pressed, using an `and`{:class="block3operators"} block to join the two checks.
 >
@@ -66,7 +66,7 @@ Move Neil into a sign and it disappears.
 > when I start as a clone
 > show
 > forever
-> if <<touching (Neil v)?> and <key (space v) pressed?>> then
+> +if <<touching (Neil v)?> and <key (space v) pressed?>> then
 > delete this clone
 > end
 > end

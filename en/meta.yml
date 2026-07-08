@@ -8,7 +8,4 @@ steps:
     completion:
       - engaged
   - title: Add stuff to smash
-  - title: Challenge
-    challenge: true
-    completion:
-      - external
+  - title: Reward Neil
