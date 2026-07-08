@@ -6,7 +6,7 @@ In this step, you'll end the game when Neil runs out of lives.
 >
 > Click on the `Stage`, then click the `Backdrops`{:class="block3looks"} tab.
 >
-> Add a new backdrop called `GameOver` for when Neil runs out of lives. As before, you can design it however you like.
+> Hover over **Choose a Backdrop** and click **Paint** to make a new, blank backdrop. Call it `GameOver`, for when Neil runs out of lives. As before, you can design it however you like.
 
 Here's the `GameOver` backdrop from the example project:
 
