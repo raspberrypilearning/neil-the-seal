@@ -7,7 +7,7 @@ steps:
   - title: Make Neil move
     completion:
       - engaged
-  - title: Step title
+  - title: Add stuff to smash
   - title: Challenge
     challenge: true
     completion:
