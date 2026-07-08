@@ -17,4 +17,7 @@ steps:
   - title: Give Neil a voice
     completion:
       - internal
+  - title: Make it your own
+    challenge: true
+    completion:
       - external
