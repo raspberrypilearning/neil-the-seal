@@ -109,3 +109,9 @@ In the example project, Neil has five costumes that move his legs up and down as
 ![Neil's five costumes side by side, with the legs in slightly different positions in each one](images/neil-costumes-all.png)
 
 Now the `next costume`{:class="block3looks"} block cycles through all five poses, giving Neil a smooth waddle as he explores the town.
+
+> [!NOPRINT]
+>
+> This is how Neil looks as he waddles around the town:
+>
+> ![Animated image of Neil the seal waddling as his costumes change](images/neil-walking.gif)
