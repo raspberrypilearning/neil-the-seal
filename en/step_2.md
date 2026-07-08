@@ -48,8 +48,8 @@ Now only the six clones are visible.
 > when I start as a clone
 > show
 > +forever
-> +if <touching (Neil v)?> then
-> +delete this clone
+> if <touching (Neil v)?> then
+> delete this clone
 > end
 > end
 > ```
