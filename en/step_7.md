@@ -1,10 +1,10 @@
 ## Catching Neil
 
-In this step, you'll give Neil some lives to lose when the Ranger catches him.
+In this step, you'll give Neil some lives to lose when the ranger catches him.
 
 > [!TASK]
 >
-> Click on the `Stage`. Make a new variable called `lives`{:class="block3variables"}, and choose **For all sprites**.
+> Click on the **Stage**. Make a new `variable`{:class="block3variables"} called `lives`, and choose **For all sprites**.
 >
 > Tick its checkbox so the player can see how many lives Neil has left.
 >
@@ -21,9 +21,9 @@ In this step, you'll give Neil some lives to lose when the Ranger catches him.
 
 > [!TASK]
 >
-> Click on the `Ranger`{:class="block3looks"} sprite. When the Ranger catches Neil, Neil should lose a life.
+> Click on the **Ranger** sprite. When the ranger catches Neil, Neil should lose a life.
 >
-> At the bottom of the `if then`{:class="block3control"} block, below the movement code, add an `if then`{:class="block3control"} block that checks if the Ranger is `touching Neil`{:class="block3sensing"}. If they are, `change lives by ()`{:class="block3variables"} by `-1` and send the Ranger back to their starting position.
+> At the bottom of the `if ... then`{:class="block3control"} block, below the movement code, add an `if ... then`{:class="block3control"} block that checks if the ranger is `touching Neil`{:class="block3sensing"}. If they are, `change lives by`{:class="block3variables"} `-1` and send the ranger back to their starting position.
 >
 > ```blocks3
 > when green flag clicked
@@ -49,7 +49,7 @@ In this step, you'll give Neil some lives to lose when the Ranger catches him.
 
 > [!TASK]
 >
-> Now tell the rest of the game that Neil has been caught. Make a new message called `got ya`, and add a `broadcast () and wait`{:class="block3events"} block inside your new `if then`{:class="block3control"} block.
+> Now tell the rest of the game that Neil has been caught. Make a new `broadcast`{:class="block3events"} message called `got ya`, and add a `broadcast and wait`{:class="block3events"} block inside your new `if ... then`{:class="block3control"} block.
 >
 > ```blocks3
 > if <touching (Neil v)?> then
@@ -61,9 +61,9 @@ In this step, you'll give Neil some lives to lose when the Ranger catches him.
 
 > [!TASK]
 >
-> Click on the `Neil`{:class="block3looks"} sprite. Neil needs to react when he's caught.
+> Click on the **Neil** sprite. Neil needs to react when he's caught.
 >
-> Add a `when I receive ()`{:class="block3events"} block for the `got ya` message. Send Neil back to his starting position, then make him `say () for () seconds`{:class="block3looks"} to say "Hey!".
+> Add a `when I receive`{:class="block3events"} block for the `got ya`{:class="block3events"} message. Send Neil back to his starting position, then use a `say () for () seconds`{:class="block3looks"} to make him say `Hey!`.
 >
 > ```blocks3
 > when I receive (got ya v)
@@ -71,4 +71,4 @@ In this step, you'll give Neil some lives to lose when the Ranger catches him.
 > say [Hey!] for (0.6) seconds
 > ```
 
-Click the green flag and let the Ranger catch Neil. Neil says "Hey!", pops back to the start, and loses a life.
+Click on the green flag and let the ranger catch Neil. Neil says "Hey!", pops back to the start, and loses a life.

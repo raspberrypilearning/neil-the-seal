@@ -1,12 +1,12 @@
 ## Chasing Neil
 
-In this step, you'll add a Ranger who chases Neil around the town.
+In this step, you'll add a ranger who chases Neil around the town.
 
 > [!TASK]
 >
-> Click on the `Ranger`{:class="block3looks"} sprite.
+> Click on the **Ranger** sprite.
 >
-> Add a `when green flag clicked`{:class="block3events"} block. Use a `go to x: () y: ()`{:class="block3motion"} block to place the Ranger in the corner, and a `show`{:class="block3looks"} block to make sure they're visible.
+> Add a `when green flag clicked`{:class="block3events"} block. Use a `go to x: y:`{:class="block3motion"} block to place the ranger in the corner, and a `show`{:class="block3looks"} block to make sure they're visible.
 >
 > ```blocks3
 > when green flag clicked
@@ -16,7 +16,7 @@ In this step, you'll add a Ranger who chases Neil around the town.
 
 > [!TASK]
 >
-> The Ranger should only chase Neil while the game is being played. Add a `forever`{:class="block3control"} loop with an `if then`{:class="block3control"} block that checks `game over`{:class="block3variables"} is `0`.
+> The ranger should only chase Neil while the game is being played. Use a `forever`{:class="block3control"} loop with an `if ... then`{:class="block3control"} block that checks `game over`{:class="block3variables"} is `0`.
 >
 > ```blocks3
 > when green flag clicked
@@ -28,15 +28,15 @@ In this step, you'll add a Ranger who chases Neil around the town.
 
 > [!TASK]
 >
-> For the Ranger to chase Neil, they need to know where Neil is.
+> For the ranger to chase Neil, they need to know where Neil is.
 >
-> Click on the `Neil`{:class="block3looks"} sprite and make two new variables, `neil x`{:class="block3variables"} and `neil y`{:class="block3variables"}. Choose **For all sprites** so the Ranger can read them too.
+> Click on the **Neil** sprite and make two new `variables`{:class="block3variables"}, `neil x` and `neil y`. Choose **For all sprites** so the ranger can read them too.
 >
 > Untick both checkboxes to hide these from the player.
 
 > [!TASK]
 >
-> Still on the `Neil`{:class="block3looks"} sprite, find his movement script. At the bottom of the movement code, inside the `if then`{:class="block3control"} block, set `neil x`{:class="block3variables"} and `neil y`{:class="block3variables"} to his current position.
+> Still on the **Neil** sprite, find his movement script. At the bottom of the movement code, inside the `if ... then`{:class="block3control"} block, set `neil x`{:class="block3variables"} and `neil y`{:class="block3variables"} to his current position.
 >
 > ```blocks3
 > when green flag clicked
@@ -68,9 +68,9 @@ In this step, you'll add a Ranger who chases Neil around the town.
 
 > [!TASK]
 >
-> Go back to the `Ranger`{:class="block3looks"} sprite. Inside the `if then`{:class="block3control"} block, make the Ranger move towards Neil's x position.
+> Go back to the **Ranger** sprite. Inside the `if ... then`{:class="block3control"} block, make the ranger move towards Neil's x position.
 >
-> Use an `if then else`{:class="block3control"} block: if `neil x`{:class="block3variables"} is greater than the Ranger's `x position`{:class="block3motion"}, `change x by ()`{:class="block3motion"} to move right, otherwise move left.
+> Use an `if ... then ... else`{:class="block3control"} block: if `neil x`{:class="block3variables"} is greater than the ranger's `x position`{:class="block3motion"}, `change x by`{:class="block3motion"} to move right, otherwise move left.
 >
 > ```blocks3
 > when green flag clicked
@@ -87,7 +87,7 @@ In this step, you'll add a Ranger who chases Neil around the town.
 
 > [!TASK]
 >
-> Now do the same for Neil's y position, so the Ranger follows Neil up and down as well.
+> Now do the same for Neil's y position, so the ranger follows Neil up and down as well.
 >
 > ```blocks3
 > when green flag clicked
@@ -107,4 +107,4 @@ In this step, you'll add a Ranger who chases Neil around the town.
 > end
 > ```
 
-Click the green flag. The Ranger now chases Neil wherever he waddles.
+Click on the green flag. The ranger now chases Neil wherever he waddles.

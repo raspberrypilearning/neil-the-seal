@@ -4,21 +4,21 @@ In this step, you'll let the player win by smashing everything in town.
 
 > [!TASK]
 >
-> Click on the `Stage`, then click the `Backdrops`{:class="block3looks"} tab.
+> Click on the **Stage**, then click on the **Backdrops** tab.
 >
-> Hover over **Choose a Backdrop** and click **Paint** to make a new, blank backdrop. Call it `Win`, then give it a background and some text to celebrate finishing the game — you can write whatever you like.
+> Hover over **Choose a Backdrop** and click on **Paint** to make a new, blank backdrop. Call it `Win`, then give it a background and some text to celebrate finishing the game — you can write whatever you like.
 
-Here's the `Win` backdrop from the example project:
+Here's the **Win** backdrop from the example project:
 
-![The Win backdrop from the example project, a green screen reading TOWN DEMOLISHED!](images/win-backdrop.png)
+![A green screen that reads "TOWN DEMOLISHED! Neil wrecked every sign, car and barrier in town. Click the green flag to play again."](images/win-backdrop.png)
 
 > [!TASK]
 >
-> Make a new variable called `game over`{:class="block3variables"}, and choose **For all sprites**.
+> Make a new `variable`{:class="block3variables"} called `game over`, and choose **For all sprites**.
 >
 > This one is just for the code to use, so untick its checkbox to hide it from the player.
 >
-> On the Stage, add it to your `when green flag clicked`{:class="block3events"} script and set it to `0` at the start.
+> On the **Stage**, add it to your `when green flag clicked`{:class="block3events"} script and set it to `0` at the start.
 >
 > ```blocks3
 > when green flag clicked
@@ -29,9 +29,9 @@ Here's the `Win` backdrop from the example project:
 
 > [!TASK]
 >
-> The player wins when there's nothing left to smash. On the Stage, add a new script to check for this.
+> The player wins when there's nothing left to smash. On the **Stage**, add a new script to check for this.
 >
-> Start with a `wait () seconds`{:class="block3control"} block for `0.2` seconds, so the signs, cars, and barriers have time to be counted before the check begins. Then use a `forever`{:class="block3control"} loop with an `if then`{:class="block3control"} block. When `stuff to smash`{:class="block3variables"} is less than `1` and `game over`{:class="block3variables"} is `0`, switch to your `Win` backdrop and set `game over`{:class="block3variables"} to `1`.
+> Start with a `wait`{:class="block3control"} block set to `0.2` seconds, so the signs, cars, and barriers have time to be counted before the check begins. Then use a `forever`{:class="block3control"} loop with an `if ... then`{:class="block3control"} block. When `stuff to smash`{:class="block3variables"} is less than `1` and `game over`{:class="block3variables"} is `0`, switch to your `Win`{:class="block3looks"} backdrop and set `game over`{:class="block3variables"} to `1`.
 >
 > ```blocks3
 > when green flag clicked
@@ -46,7 +46,7 @@ Here's the `Win` backdrop from the example project:
 
 > [!TASK]
 >
-> When the game starts, it should always begin on the `Town` backdrop. Add a `switch backdrop to ()`{:class="block3looks"} block to the top of your setup script.
+> When the game starts, it should always begin on the **Town** backdrop. Add a `switch backdrop to`{:class="block3looks"} block to the top of your setup script.
 >
 > ```blocks3
 > when green flag clicked
@@ -58,7 +58,7 @@ Here's the `Win` backdrop from the example project:
 
 > [!TASK]
 >
-> When the game is over, Neil should stop moving. Click on the `Neil`{:class="block3looks"} sprite and wrap all of his movement code in an `if then`{:class="block3control"} block that only runs while `game over`{:class="block3variables"} is `0`.
+> When the game is over, Neil should stop moving. Click on the **Neil** sprite and wrap all of his movement code in an `if ... then`{:class="block3control"} block that only runs while `game over`{:class="block3variables"} is `0`.
 >
 > ```blocks3
 > when green flag clicked
@@ -86,4 +86,4 @@ Here's the `Win` backdrop from the example project:
 > end
 > ```
 
-Click the green flag and smash everything in town. When the last object is gone, your `Win` backdrop appears — and Neil stops moving.
+Click on the green flag and smash everything in town. When the last object is gone, your **Win** backdrop appears — and Neil stops moving.

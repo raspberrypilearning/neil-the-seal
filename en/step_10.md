@@ -1,20 +1,20 @@
 ## Give Neil a voice
 
-At the moment, the player can just hold down the space bar to smash everything at once. In this step, you'll add a short delay — and give Neil something to say each time he smashes.
+At the moment, the player can just hold down the space bar to smash everything at once. In this step, you'll add a short delay — and give Neil something to say each time he smashes something.
 
 > [!TASK]
 >
-> Make a new list called `neil's words`{:class="block3variables"}, and choose **For all sprites**.
+> Make a new `list`{:class="block3variables"} called `neil's words`, and choose **For all sprites**.
 >
-> Using the list on the Stage, click the `+` to add a few things for Neil to shout when he smashes something. You can add as many as you like, and they can be anything you want!
+> Using the list on the Stage, click on the **+** to add a few things for Neil to shout when he smashes something. You can add as many as you like, and they can be anything you want!
 >
 > Once you've added all your words, untick the list's checkbox to hide it from the player.
 
 > [!TASK]
 >
-> Click on the `Neil`{:class="block3looks"} sprite and find his movement script.
+> Click on the **Neil** sprite and find his movement script.
 >
-> With the rest of the movement code, inside the `if then`{:class="block3control"} block, add another `if then`{:class="block3control"} block that checks for the `space`{:class="block3sensing"} key. When it's pressed, `say () for () seconds`{:class="block3looks"} a random item from your list for `0.2` seconds.
+> With the rest of the movement code, inside the `if ... then`{:class="block3control"} block, add another `if ... then`{:class="block3control"} block that checks for the `space`{:class="block3sensing"} key. Use a `say () for () seconds`{:class="block3looks"} block to make Neil say a random item from your list for `0.2` seconds when the <kbd>Space</kbd> key is pressed.
 >
 > ```blocks3
 > when green flag clicked
@@ -47,6 +47,6 @@ At the moment, the player can just hold down the space bar to smash everything a
 > end
 > ```
 
-Using `length of ()`{:class="block3variables"} means Neil will always pick from however many things you added to the list.
+Using `length of`{:class="block3variables"} means Neil will always pick from however many things you added to the list.
 
-Click the green flag and smash away. Neil shouts something each time, and holding down the space bar no longer clears the whole town in an instant.
+Click on the green flag and smash away. Neil shouts something each time, and holding down the space bar no longer clears the whole town in an instant.

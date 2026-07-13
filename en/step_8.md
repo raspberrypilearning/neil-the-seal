@@ -1,22 +1,22 @@
-## Back to the sea Neil
+## Back to the sea, Neil
 
 In this step, you'll end the game when Neil runs out of lives.
 
 > [!TASK]
 >
-> Click on the `Stage`, then click the `Backdrops`{:class="block3looks"} tab.
+> Click on the **Stage**, then click on the **Backdrops**** tab.
 >
-> Hover over **Choose a Backdrop** and click **Paint** to make a new, blank backdrop. Call it `game over`, for when Neil runs out of lives. As before, you can design it however you like.
+> Hover over **Choose a Backdrop** and click on **Paint** to make a new, blank backdrop. Call it `game over`, for when Neil runs out of lives. As before, you can design it however you like.
 
-Here's the `game over` backdrop from the example project:
+Here's the **game over** backdrop from the example project:
 
-![The game over backdrop from the example project, a blue screen reading BACK TO SEA!](images/game-over-backdrop.png)
+![A blue screen that reads "BACK TO SEA! The Ranger caught Neil one too many times. Click the green flag to try again."](images/game-over-backdrop.png)
 
 > [!TASK]
 >
-> Neil loses when he runs out of lives. On the Stage, add a new script — much like your winning one — using a `forever`{:class="block3control"} loop and an `if then`{:class="block3control"} block.
+> Neil loses when he runs out of lives. On the **Stage**, add a new script — much like your winning one — using a `forever`{:class="block3control"} loop and an `if ... then`{:class="block3control"} block.
 >
-> When `lives`{:class="block3variables"} is less than `1` and `game over`{:class="block3variables"} is `0`, switch to your `game over` backdrop and set `game over`{:class="block3variables"} to `1`.
+> When `lives`{:class="block3variables"} is less than `1` and `game over`{:class="block3variables"} is `0`, switch to your `game over`{:class="block3looks"} backdrop and set `game over`{:class="block3variables"} to `1`.
 >
 > ```blocks3
 > when green flag clicked
@@ -30,7 +30,7 @@ Here's the `game over` backdrop from the example project:
 
 > [!TASK]
 >
-> Make a new message called `game over`. Add a `broadcast ()`{:class="block3events"} block to your new script, so the other sprites know the game has ended.
+> Make a new `broadcast`{:class="block3events"} message called `game over`. Add a `broadcast`{:class="block3events"} block to your new script, so the other sprites know the game has ended.
 >
 > ```blocks3
 > if <<(lives) < (1)> and <(game over) = (0)>> then
@@ -42,9 +42,9 @@ Here's the `game over` backdrop from the example project:
 
 > [!TASK]
 >
-> Click on the `Ranger`{:class="block3looks"} sprite. When the game is over, the Ranger sends Neil back to sea.
+> Click on the **Ranger** sprite. When the game is over, the ranger sends Neil back to the sea.
 >
-> Add a `when I receive ()`{:class="block3events"} block for the `game over` message, and make the Ranger `say () for () seconds`{:class="block3looks"} to say "Off you go!".
+> Add a `when I receive`{:class="block3events"} block for the `game over`{:class="block3events"} message, and use a `say () for () seconds`{:class="block3looks"} to make the ranger say `Off you go!`.
 >
 > ```blocks3
 > when I receive (game over v)
@@ -55,7 +55,7 @@ Here's the `game over` backdrop from the example project:
 >
 > When the game ends, all the stop sign clones are still lying around town. Get them to tidy themselves up.
 >
-> Click on the `Sign`{:class="block3looks"} sprite. In the clone's `forever`{:class="block3control"} loop, add an `if then`{:class="block3control"} block that checks whether `game over`{:class="block3variables"} is `1`. If it is, `delete this clone`{:class="block3control"}.
+> Click on the **Sign** sprite. In the clone's `forever`{:class="block3control"} loop, add an `if ... then`{:class="block3control"} block that checks whether `game over`{:class="block3variables"} is `1`. If it is, `delete this clone`{:class="block3control"}.
 >
 > ```blocks3
 > when I start as a clone
@@ -71,4 +71,4 @@ Here's the `game over` backdrop from the example project:
 > end
 > ```
 
-Click the green flag and let the Ranger catch Neil three times. The `game over` backdrop appears, the Ranger sends Neil back to sea, and the leftover stop signs disappear.
+Click on the green flag and let the ranger catch Neil three times. The **game over** backdrop appears, the ranger sends Neil back to the sea, and the leftover stop signs disappear.
