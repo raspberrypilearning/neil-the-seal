@@ -4,13 +4,13 @@ In this step, you'll keep score as Neil smashes things, and keep track of how mu
 
 > [!TASK]
 >
-> Click on the `Stage`.
+> Click on the **Stage**.
 >
-> Make two new variables, `score`{:class="block3variables"} and `stuff to smash`{:class="block3variables"}, and choose **For all sprites** for each one.
+> Make two new `variables`{:class="block3variables"}, `score` and `stuff to smash`, and choose **For all sprites** for each one.
 >
 > Tick the checkbox next to `score`{:class="block3variables"} so the player can see it, and untick `stuff to smash`{:class="block3variables"} to hide it.
 >
-> Add a `when green flag clicked`{:class="block3events"} block to the Stage that sets both variables to `0`.
+> Add a `when green flag clicked`{:class="block3events"} block to the **Stage** that sets both variables to `0`.
 >
 > ```blocks3
 > when green flag clicked
@@ -20,11 +20,11 @@ In this step, you'll keep score as Neil smashes things, and keep track of how mu
 
 > [!TASK]
 >
-> Click on the `Sign`{:class="block3looks"} sprite. Each sign that gets made should add one to the total amount of stuff to smash.
+> Click on the **Sign** sprite. Each sign that gets made should add 1 to the total amount of stuff to smash.
 >
-> Inside the `repeat ()`{:class="block3control"} loop, add a `change stuff to smash by ()`{:class="block3variables"} block to count each clone as it's created.
+> Inside the `repeat`{:class="block3control"} loop, add a `change stuff to smash by`{:class="block3variables"} block to count each clone as it's created.
 >
-> Then add a `wait () seconds`{:class="block3control"} block for `0.1` seconds at the very top of the script. This gives the Stage time to reset `stuff to smash`{:class="block3variables"} to `0` before the signs start counting.
+> Then add a `wait`{:class="block3control"} block set to `0.1` seconds at the very top of the script. This gives the **Stage** time to reset `stuff to smash`{:class="block3variables"} to `0` before the signs start being counted.
 >
 > ```blocks3
 > when green flag clicked
@@ -40,13 +40,13 @@ In this step, you'll keep score as Neil smashes things, and keep track of how mu
 
 > [!TIP]
 >
-> Both this script and the Stage's setup script start when the green flag is clicked, so they run at the same time. Without the short wait, the signs could start adding to `stuff to smash` before the Stage sets it back to `0`, and the total would come out wrong.
+> Both this script and the Stage's setup script start when the green flag is clicked, so they run at the same time. Without the short wait, the signs could start adding to `stuff to smash`{:class="block3variables"} before the Stage sets it back to `0`, and the total would come out wrong.
 
 > [!TASK]
 >
-> Now, when Neil smashes a sign, reward the player with some points and take one off the amount left to smash.
+> Now, when Neil smashes a sign, reward the player with some points and take 1 off the amount left to smash.
 >
-> In the clone script, inside the `if then`{:class="block3control"} block, add a `change score by ()`{:class="block3variables"} block to add `10` points and a `change stuff to smash by ()`{:class="block3variables"} block to take away `1`.
+> In the clone script, inside the `if ... then`{:class="block3control"} block, add a `change score by`{:class="block3variables"} block to add `10` points and a `change stuff to smash by`{:class="block3variables"} block to take away `1`.
 >
 > ```blocks3
 > when I start as a clone
@@ -59,4 +59,4 @@ In this step, you'll keep score as Neil smashes things, and keep track of how mu
 > end
 > ```
 
-Click the green flag and smash some signs. Your score goes up, and the amount of stuff left to smash goes down.
+Click on the green flag and smash some signs. Your score goes up, and the amount of stuff left to smash goes down.

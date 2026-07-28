@@ -1,7 +1,7 @@
-title: Neil the Seal
+title: Neil the seal
 hero_image: images/banner.png
-description: Code a game where you help Neil the seal waddle around town.
-listed: false
+description: Code a game where you help Neil the seal waddle around town
+listed: true
 pdf: false
 steps:
   - title: What you will make
@@ -13,7 +13,7 @@ steps:
   - title: Winning
   - title: Chasing Neil
   - title: Catching Neil
-  - title: Back to the sea Neil
+  - title: Back to the sea, Neil
   - title: Add cars and barriers
   - title: Give Neil a voice
     completion:
