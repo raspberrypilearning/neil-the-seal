@@ -1,7 +1,7 @@
 title: Neil the seal
 hero_image: images/banner.png
 description: Code a game where you help Neil the seal waddle around town
-listed: false
+listed: true
 pdf: false
 steps:
   - title: What you will make
